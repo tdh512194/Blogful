@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Messi's blog</title>
+    <link rel="stylesheet" href="../static/main.css">
+</head>
+
+<body>
+    <h1>Messi is our beloved DOG</h1>
+    <hr/>
+    <p>Here is some of her blog shit posts:</p>
+    <div class ="blog-container">
+        <ul>
+            {% for i in [0,1] %}
+                <li><a href="#">{{ entries[i].title }}</a></li>
+                <!--TODO: add link to href-->
+                <hr/>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+
+</html>

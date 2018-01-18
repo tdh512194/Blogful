@@ -1,0 +1,39 @@
+h1 {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    display: block;
+    color: cadetblue;
+    background-color: orangered;   
+    width: 450px;
+    transition: transform 2s;
+}
+
+h1:hover {
+    color:orangered;
+    background-color: cadetblue;
+    transform: scale(1.5)
+}
+
+
+.blog-container {
+    background-color: cornflowerblue
+}
+
+a {
+    color: black;
+    font-weight: 1000;
+}
+
+p {
+    font-size: 2em;
+    font-family: cursive
+}
+
+ul {
+    display: flex;
+}
+
+li {
+    width: 50%;
+}
