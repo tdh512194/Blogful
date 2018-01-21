@@ -1,0 +1,50 @@
+
+h1 {
+    display: block;
+    margin-left: auto;
+    width: 6em;
+    text-align: right;
+    color: #5F4BB6;
+    background-color: #A7A2A9;
+    transition: transform 1s
+}
+
+h1:hover {
+    color: #F4F7F5;
+    background-color: #575A5E;
+    transform: scaleX(2) translateX(-1.5em)
+}
+
+.content {
+    color: #0E1428;
+    background-color: #F1FAEE;
+    font-family: cursive;
+    border: solid #575A5E;
+    border-radius: 1em;
+    padding: 1em;
+    margin-left: 10%;
+    margin-right: 10%;
+    text-align: justify
+}
+
+btn-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1em
+}
+
+.button {
+    width: 7em;
+    height: 2em;
+    border: solid #E63946;
+    border-radius: 100px;
+    background-color: #F1FAEE;
+    color: #E63946;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.button:hover {
+    background-color: #E63946;;
+    color:  #F1FAEE;
+}

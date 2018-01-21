@@ -13,8 +13,7 @@
     <div class ="blog-container">
         <ul>
             {% for i in [0,1] %}
-                <li><a href="#">{{ entries[i].title }}</a></li>
-                <!--TODO: add link to href-->
+                <li><a href="/post/{{i + 1}}">{{ entries[i].title }}</a></li>
                 <hr/>
             {% endfor %}
         </ul>
