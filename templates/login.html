@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>Login</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="../static/css/base.css">
+    <link rel="stylesheet" href="../static/css/vendor.css">
+    <link rel="stylesheet" href="../static/css/main.css">
+
+    <style type="text/css" media="screen">
+        .s-styles {
+            background: #f2f2f2;
+            padding-top: 0px;
+            padding-bottom: 12rem;
+        }
+
+        .s-styles .section-intro h1 {
+            margin-top: 0;
+        }
+
+    </style>
+
+    <!-- script
+    ================================================== -->
+    <script src="../static/js/modernizr.js"></script>
+    <script src="../static/js/pace.min.js"></script>
+
+    <!-- favicons
+    ================================================== -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+</head>
+
+<body>
+    <section id="styles" class="s-styles">
+            <div class="row">
+        <div class="col-six tab-full">
+                <h3 class="add-bottom">Login |<a href="http://127.0.0.1:5000/home"><i class="fa fa-home"></i></a> </h3>
+                <form>
+                    <div>
+                        <label for="username">Username</label>
+                        <input class="full-width" type="text" placeholder="username" id="username" required name="username">
+                    </div>
+                    <div>
+                        <label for="password">Password</label>
+                        <input class="full-width" type="password"  id="password" required name="password">
+                    </div>
+                    <button class="btn--primary full-width" type="submit" formaction="/login" formmethod="post">login</button>
+                    <a href="http://127.0.0.1:5000/register" class="btn btn--stroke full-width">REGISTER</a>
+                </form>
+                {% if wrong %}
+                    <div class="alert-box alert-box--error hideit">
+                        <p> {{ message }}</p>
+                        <i class="fa fa-times alert-box__close"></i>
+                    </div> <!-- end error -->
+                {% endif %}
+                <div class="alert-box alert-box--notice hideit">
+                    <p>Please login or select <i class="fa fa-home"></i> to HOMEPAGE</p>
+                    <i class="fa fa-times alert-box__close"></i>
+                </div>
+                        
+                
+            </div>
+        </div>
+    </section>
+</body>

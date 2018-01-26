@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Edit</title>
+    <link rel="stylesheet" href="/static/write.css">
+</head>
+
+<body>
+    <form>
+        <h1>Editing</h1>
+        <fieldset>
+            <legend style="font-size: 2em; color: #0B0033; background-color: #CDD7D6">Blog</legend>
+            <div class="post-container">
+                <div class="title">Title:</div> <input class="input-title" type="text" name="title" required placeholder="Your title here" value="{{ title }}">
+                <textarea class="input-content" name="content" required>{{content}}</textarea>
+            </div>
+        </fieldset>
+        <div class="btn-container">
+            <button type="submit" class="button" formaction="/post/{{entry_id}}/edited" formmethod="post">FINISH</button>
+        </div>
+    </form>
+    <form>
+            <btn-container>
+                <button class="button" formaction="/home" style="transform: translateY(-30px)">HOME</button>
+            </btn-container>
+        </form>
+</body>
+</html>

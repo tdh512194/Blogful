@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Messi's blog</title>
+    <link rel="stylesheet" href="../static/write.css">
+    <link rel="stylesheet" href="../static/main.css">
+</head>
+
+<body>
+    <h1>Messi is our beloved DOG</h1>
+    <hr/>
+    <p>Here is some of her blog shit posts:</p>
+    <div class ="blog-container">
+        <ul>
+            {% for i in [0,1] %}
+                <li><a href="/post/{{i + 1}}">{{ entries[i].title }}</a></li>
+                <hr/>
+            {% endfor %}
+        </ul>
+    </div>
+    <form>
+        <button class="button" formaction="/login" formmethod="get">LOGIN</button>
+        <button class="button" formaction="/logout" formmethod="get">LOGOUT</button>
+    </form>
+</body>
+
+</html>

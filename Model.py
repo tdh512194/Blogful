@@ -1,16 +1,19 @@
 import datetime
 from flask import Flask
-from flask.ext.login import UserMixin,LoginManager,login_user,current_user,logout_user,login_required
+from flask.ext.login import UserMixin,LoginManager
 from hashlib import md5
 from flask_sqlalchemy import SQLAlchemy
+#from flask_migrate import Migrate, MigrateCommand,Manager
 from sqlalchemy import Column, Integer, String, Text, DateTime, ForeignKey
 
 app = Flask(__name__)
 app.config.from_pyfile('config.cfg')
 
+db = SQLAlchemy(app)
+
 app.secret_key='blogfulproject'
 
-db = SQLAlchemy(app)
+
 login_manager=LoginManager()
 login_manager.init_app(app)
 
@@ -42,3 +45,4 @@ class Entry(db.Model):
         self.title = title
         self.content = content
         self.owner_id = owner_id
+

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>Account</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="../static/css/base.css">
+    <link rel="stylesheet" href="../static/css/vendor.css">
+    <link rel="stylesheet" href="../static/css/main.css">
+
+    <style type="text/css" media="screen">
+        .s-styles {
+            background: #f2f2f2;
+            padding-top: 12rem;
+            padding-bottom: 12rem;
+        }
+
+        .s-styles .section-intro h1 {
+            margin-top: 0;
+        }
+
+    </style>
+
+    <!-- script
+    ================================================== -->
+    <script src="../static/js/modernizr.js"></script>
+    <script src="../static/js/pace.min.js"></script>
+
+    <!-- favicons
+    ================================================== -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+</head>
+
+<body id="top">
+    <section class="s-pageheader ">
+        <header class="header">
+            <div class="header__content row">
+
+                <div class="header__logo">
+                    <a class="logo" href="http://127.0.0.1:5000/home">
+                        <img src="../static/images/logo.svg" alt="Homepage">
+                    </a>
+                </div>
+                <!-- end header__logo -->
+
+                <ul class="header__social">
+                    <li>
+                        <a href="#0"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                    </li>
+                    <li>
+                        <a href="#0"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                    </li>
+                    <li>
+                        <a href="#0"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                    </li>
+                    <li>
+                        <a href="#0"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+                    </li>
+                </ul>
+                <!-- end header__social -->
+
+                <a class="header__search-trigger" href="#0"></a>
+
+                <div class="header__search">
+
+                    <form role="search" method="get" class="header__search-form" action="#">
+                        <label>
+                            <span class="hide-content">Search for:</span>
+                            <input type="search" class="search-field" placeholder="Type Keywords" value="" name="s" title="Search for:" autocomplete="off">
+                        </label>
+                        <input type="submit" class="search-submit" value="Search">
+                    </form>
+
+                    <a href="#0" title="Close Search" class="header__overlay-close">Close</a>
+
+                </div>
+                <!-- end header__search -->
+
+
+                <a class="header__toggle-menu" href="#0" title="Menu"><span>Menu</span></a>
+
+                <nav class="header__nav-wrap">
+
+                    <h2 class="header__nav-heading h6">Site Navigation</h2>
+
+                    <ul class="header__nav">
+                        {%- if loggedin -%} {% else %}
+                        <li><a href="http://127.0.0.1:5000/login" title=""><i class="fa fa-sign-in"></i> Login</a></li>
+                        {% endif %}
+                        <li><a href="http://127.0.0.1:5000/home" title=""><i class="fa fa-home"></i> Home</a></li>
+                        {%- if loggedin -%}
+                        <li class="current"><a href="#" title=""><i class="fa fa-user"></i> Account</a></li>
+                        <li><a href="http://127.0.0.1:5000/{{ username }}/write" title=""><i class="fa fa-file-text"></i> Write</a></li>
+                        <li><a href="http://127.0.0.1:5000/logout" title=""><i class="fa fa-sign-out"></i> Logout</a></li>
+                        {% endif %}
+
+                    </ul>
+
+                    <a href="#0" title="Close Menu" class="header__overlay-close close-mobile-menu">Close</a>
+
+                </nav>
+                <!-- end header__nav-wrap -->
+
+            </div>
+            <!-- header-content -->
+        </header>
+        <!-- header -->
+
+    </section>
+    <!-- end s-pageheader -->
+    <section class="s-extra">
+
+        <div class="row top">
+            <div class="col-four md-six tab-full about">
+                <h3>{{author}}</h3>
+
+                <blockquote>
+                    <p>Good design is as little design as possible.</p>
+                    <cite>Dieter Rams</cite>
+                </blockquote>
+
+
+                <ul class="about__social">
+                    <li>
+                        <a href="#0"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                    </li>
+                    <li>
+                        <a href="#0"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                    </li>
+                    <li>
+                        <a href="#0"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                    </li>
+                    <li>
+                        <a href="#0"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+                    </li>
+                </ul>
+                <!-- end header__social -->
+
+   </div>
+            <div class="col-eight md-six tab-full popular">
+                <p>
+                    <a href="#"><img width="120" height="120" class="pull-left" alt="sample-image" src="../static/images/avatars/user-05.jpg"></a> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum.Cras id urna. Morbi tincidunt, orci ac convallis aliquam, lectus turpis varius lorem, eu posuere nunc justo tempus leo. Donec mattis, purus nec placerat bibendum, dui pede condimentum odio, ac blandit ante orci ut diam. Cras fringilla magna. Phasellus suscipit, leo a pharetra condimentum, lorem tellus eleifend magna, eget fringilla velit magna id neque posuere nunc justo tempus leo. </p>
+                <h3>Posts from Author</h3>
+
+                <div class="block-1-2 block-m-full popular__posts">
+                    {% for entry in entries %}
+                        <article class="col-block popular__post">
+                            <a href="#0" class="popular__thumb">
+                                <img src="../static/images/thumbs/small/shutterbug-150.jpg" alt="">
+                            </a>
+                            <h5><a href="http://127.0.0.1:5000/post/{{ entry.id }}">{{ entry.title }}</a></h5>
+                            <section class="popular__meta">
+                                <span class="popular__author"><span>By</span> <a href="#"> {{ username }}</a></span>
+                                <span class="popular__date"><span>on</span> <time datetime="2017-12-18">Dec 18, 2017</time></span>
+                            </section>
+                        </article>
+                    {% endfor %}
+                </div>
+                <!-- end popular_posts -->
+            </div>
+            <!-- end popular -->
+
+        </div>
+        <!-- end row -->
+    </section>
+    <!-- end s-extra -->
+    <footer class="s-footer">
+
+        <div class="s-footer__main">
+            <div class="row">
+                
+                <div class="col-two md-four mob-full s-footer__sitelinks">
+                        
+                    <h4>Quick Links</h4>
+
+                    <ul class="s-footer__linklist">
+                       <li><a href="#0">Login</a></li>
+                        <li><a href="#0">Home</a></li>
+                        <li><a href="#0">Account</a></li>
+                        <li><a href="#0">Blog</a></li>
+                        <li><a href="#0">Logout</a></li>
+                    </ul>
+
+                </div> <!-- end s-footer__sitelinks -->
+
+                <div class="col-two md-four mob-full s-footer__archives">
+                        
+                    <h4>Archives</h4>
+
+                    <ul class="s-footer__linklist">
+                        <li><a href="#0">January 2018</a></li>
+                        <li><a href="#0">December 2017</a></li>
+                        <li><a href="#0">November 2017</a></li>
+                        <li><a href="#0">October 2017</a></li>
+                        <li><a href="#0">September 2017</a></li>
+                        <li><a href="#0">August 2017</a></li>
+                    </ul>
+
+                </div> <!-- end s-footer__archives -->
+
+                <div class="col-two md-four mob-full s-footer__social">
+                        
+                    <h4>Social</h4>
+
+                    <ul class="s-footer__linklist">
+                        <li><a href="#0">Facebook</a></li>
+                        <li><a href="#0">Instagram</a></li>
+                        <li><a href="#0">Twitter</a></li>
+                        <li><a href="#0">Pinterest</a></li>
+                        <li><a href="#0">Google+</a></li>
+                        <li><a href="#0">LinkedIn</a></li>
+                    </ul>
+
+                </div> <!-- end s-footer__social -->
+
+                <div class="col-five md-full end s-footer__subscribe">
+                        
+                    <h4>Our Newsletter</h4>
+
+                    <p>Ấn phẩm đầu tư giá trị đầu tiên và duy nhất tại Việt Nam dành cho nhà đầu tư cá nhân với nội dung chất lượng dựa trên quan điểm độc lập nhất.</p>
+
+                    <div class="subscribe-form">
+                        <form id="mc-form" class="group" novalidate="true">
+
+                            <input type="email" value="" name="EMAIL" class="email" id="mc-email" placeholder="Email Address" required="">
+                
+                            <input type="submit" name="subscribe" value="Send">
+                
+                            <label for="mc-email" class="subscribe-message"></label>
+                
+                        </form>
+                    </div>
+
+                </div> <!-- end s-footer__subscribe -->
+
+            </div>
+        </div> <!-- end s-footer__main -->
+
+        <div class="s-footer__bottom">
+            <div class="row">
+                <div class="col-full">
+                    <div class="s-footer__copyright">
+                        <span>© Blogful 2018</span> 
+                        <span>CBD Robotics <a href="#">Ta Duc Huy</a></span>
+                    </div>
+
+                    <div class="go-top">
+                        <a class="smoothscroll" title="Back to Top" href="#top"></a>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- end s-footer__bottom -->
+
+    </footer> <!-- end s-footer -->
+
+
+    <!-- preloader
+    ================================================== -->
+    <div id="preloader">
+        <div id="loader">
+            <div class="line-scale">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Java Script
+    ================================================== -->
+    <script src="../static/js/jquery-3.2.1.min.js"></script>
+    <script src="../static/js/plugins.js"></script>
+    <script src="../static/js/main.js"></script>
+</body>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>Edit</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="/static/css/base.css">
+    <link rel="stylesheet" href="/static/css/vendor.css">
+    <link rel="stylesheet" href="/static/css/main.css">
+
+    <style type="text/css" media="screen">
+        .s-styles {
+            background: #f2f2f2;
+            padding-top: 0;
+            padding-bottom: 12rem;
+        }
+
+        .s-styles .section-intro h1 {
+            margin-top: 0;
+        }
+
+    </style>
+
+    <!-- script
+    ================================================== -->
+    <script src="/static/js/modernizr.js"></script>
+    <script src="/static/js/pace.min.js"></script>
+
+    <!-- favicons
+    ================================================== -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+</head>
+
+<body>
+    <section id="styles" class="s-styles">
+        <div class="row">
+            <div class="col-twelve tab-full">
+                <h3 class="add-bottom">Edit your post | <a href="http://127.0.0.1:5000/home"><i class="fa fa-home"></i></a></h3>
+                <form>
+                    <div>
+                        <label for="title">Title</label>
+                        <input class="full-width" type="text"  id="title" required name="title" value="{{ title }}">
+                    </div>
+                    <div>
+                        <label for="content">Content</label>
+                        <textarea class="full-width" type="text" id="content" name="content" required style="height:50em; resize: none">{{ content }}</textarea>
+                    </div>
+                    <div style="display: flex; justify-content: space-around">
+                        <a href="http://127.0.0.1:5000/home" class="btn btn--stroke">Cancle</a>
+                        <button class="btn btn--primary" type="submit" formaction="/post/{{entry_id}}/edited" formmethod="post">Save</button>
+                    </div>
+                </form>
+
+
+
+                <div class="alert-box alert-box--info hideit">
+                    <p>Press SAVE to confirm editting or CANCEL to discard and back to HOME</p>
+                    <i class="fa fa-times alert-box__close"></i>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+</body>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>write</title>
+    <link rel="stylesheet" href="../static/write.css">
+</head>
+
+<body>
+    <form>
+        <h1>Create your content here my dear author</h1>
+        <fieldset>
+            <legend style="font-size: 2em; color: #0B0033; background-color: #CDD7D6">Blog</legend>
+            <div class="post-container">
+                <div class="title">Title:</div> <input class="input-title" type="text" name="title" required="" placeholder="Your title here">
+                <textarea class="input-content" name="content" required=""></textarea>
+            </div>
+        </fieldset>
+        <div class="btn-container">
+            <button class="button" onclick="window.location.href='/home'">HOME</button> <!--redirect method-->
+            <button type="submit" class="button" formaction="/{{username}}/written" formmethod="post">FINISH</button>
+        </div>
+    </form>
+</body>
+
+</html>
