@@ -1,23 +1,297 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html class="no-js" lang="en">
 <head>
-    <title>Messi's blog</title>
-    <link rel="stylesheet" href="../static/main.css">
+
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>Blogful</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="../static/css/base.css">
+    <link rel="stylesheet" href="../static/css/vendor.css">
+    <link rel="stylesheet" href="../static/css/main.css">
+
+    <!-- script
+    ================================================== -->
+    <script src="../static/js/modernizr.js"></script>
+    <script src="../static/js/pace.min.js"></script>
+
+    <!-- favicons
+    ================================================== -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../static/css/font-awesome/css/font-awesome.min.css">
+
 </head>
 
-<body>
-    <h1>Messi is our beloved DOG</h1>
-    <hr/>
-    <p>Here is some of her blog shit posts:</p>
-    <div class ="blog-container">
-        <ul>
-            {% for i in [0,1] %}
-                <li><a href="/post/{{i + 1}}">{{ entries[i].title }}</a></li>
-                <hr/>
-            {% endfor %}
-        </ul>
+<body id="top">
+
+    <!-- pageheader
+    ================================================== -->
+    <section class="s-pageheader ">
+        <header class="header">
+            <div class="header__content row">
+
+                <div class="header__logo">
+                    <a class="logo" href="http://127.0.0.1:5000/home">
+                        <img src="../static/images/logo.svg" alt="Homepage">
+                    </a>
+                </div> <!-- end header__logo -->
+
+                <ul class="header__social">
+                    <li>
+                        <a href="#0"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                    </li>
+                    <li>
+                        <a href="#0"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                    </li>
+                    <li>
+                        <a href="#0"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                    </li>
+                    <li>
+                        <a href="#0"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+                    </li>
+                </ul> <!-- end header__social -->
+
+                <a class="header__search-trigger" href="#0"></a>
+
+                <div class="header__search">
+
+                    <form role="search" method="get" class="header__search-form" action="#">
+                        <label>
+                            <span class="hide-content">Search for:</span>
+                            <input type="search" class="search-field" placeholder="Type Keywords" value="" name="s" title="Search for:" autocomplete="off">
+                        </label>
+                        <input type="submit" class="search-submit" value="Search">
+                    </form>
+        
+                    <a href="#0" title="Close Search" class="header__overlay-close">Close</a>
+
+                </div>  <!-- end header__search -->
+
+
+                <a class="header__toggle-menu" href="#0" title="Menu"><span>Menu</span></a>
+
+                <nav class="header__nav-wrap">
+
+                    <h2 class="header__nav-heading h6">Site Navigation</h2>
+
+                    <ul class="header__nav">
+                        {%- if loggedin -%}
+                        {% else %}
+                            <li><a href="http://127.0.0.1:5000/login" title=""><i class="fa fa-sign-in"></i> Login</a></li>
+                        {% endif %}
+                        <li class="current"><a href="#" title=""><i class="fa fa-home"></i> Home</a></li>
+                        {%- if loggedin -%}
+                            <li><a href="http://127.0.0.1:5000/{{ username }}/account" title=""><i class="fa fa-user"></i> Account</a></li>
+                            <li><a href="http://127.0.0.1:5000/{{ username }}/write" title=""><i class="fa fa-file-text"></i> Write</a></li>
+                            <li><a href="http://127.0.0.1:5000/logout" title=""><i class="fa fa-sign-out"></i> Logout</a></li>
+                        {% endif %}
+
+                    </ul>
+
+                    <a href="#0" title="Close Menu" class="header__overlay-close close-mobile-menu">Close</a>
+
+                </nav> <!-- end header__nav-wrap -->
+
+            </div> <!-- header-content -->
+        </header> <!-- header -->
+
+
+        
+
+    </section> <!-- end s-pageheader -->
+
+
+    <!-- s-content
+    ================================================== -->
+    <section class="s-content">
+        
+        <div class="row masonry-wrap">
+            <div class="masonry">
+                <div class="grid-sizer"></div>
+                {%- for i in entry_id -%}
+                <article class="masonry__brick entry format-standard" data-aos="fade-up">
+                        
+                    <div class="entry__thumb">
+                        <a href="/post/{{i}}" class="entry__thumb-link">
+                            <img src="../static/images/thumbs/masonry/tulips-400.jpg"
+                                    srcset="../static/images/thumbs/masonry/tulips-400.jpg 1x, ../static/images/thumbs/masonry/tulips-800.jpg 2x" alt="">
+                        </a>
+                    </div>
+    
+                    <div class="entry__text">
+                        <div class="entry__header">
+                            
+                            <div class="entry__date">
+                                <a href="/post/{{i}}">December 15, 2017</a>
+                            </div>
+                            <h1 class="entry__title"><a href="/post/{{i}}">{{ entries[i - 1 - post_per_page*(current_page - 1)].title }}</a></h1>
+                            
+                        </div>
+                        <div class="entry__excerpt">
+                            <p>
+                                Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua...
+                            </p>
+                        </div>
+                        <div class="entry__meta">
+                            <i class="fa fa-user"></i>
+                            <span class="entry__meta-links">
+                                <a href="http://127.0.0.1:5000/{{ authors[i - 1 - post_per_page*(current_page - 1)] }}/account">{{ authors[i - 1 - post_per_page*(current_page - 1)] }}</a>
+                            </span>
+                        </div>
+                    </div>
+    
+                </article> <!-- end article -->
+                {% endfor %}
+                
+
+
+
+            </div> <!-- end masonry -->
+        </div> <!-- end masonry-wrap -->
+
+        <div class="row">
+            <div class="col-full">
+                <nav class="pgn">
+                    <ul>
+                        <li><a class="pgn__prev" href="http://127.0.0.1:5000/home/{{ current_page - 1 }}">Prev</a></li>
+                        {%- for page in range(1, total_page + 1) -%}
+                            {% if page == current_page %}
+                                <li><span class="pgn__num current">{{ page }}</span></li>
+                            {% else %}
+                                <li><a class="pgn__num" href="http://127.0.0.1:5000/home/{{ page }}">{{ page }}</a></li>
+                            {% endif %}
+                        {% endfor %}
+                        <li><a class="pgn__next" href="http://127.0.0.1:5000/home/{{ current_page + 1 }}">Next</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+    </section> <!-- s-content -->
+
+    <!-- s-footer
+    ================================================== -->
+    <footer class="s-footer">
+
+        <div class="s-footer__main">
+            <div class="row">
+                
+                <div class="col-two md-four mob-full s-footer__sitelinks">
+                        
+                    <h4>Quick Links</h4>
+
+                    <ul class="s-footer__linklist">
+                       <li><a href="#0">Login</a></li>
+                        <li><a href="#0">Home</a></li>
+                        <li><a href="#0">Account</a></li>
+                        <li><a href="#0">Blog</a></li>
+                        <li><a href="#0">Logout</a></li>
+                    </ul>
+
+                </div> <!-- end s-footer__sitelinks -->
+
+                <div class="col-two md-four mob-full s-footer__archives">
+                        
+                    <h4>Archives</h4>
+
+                    <ul class="s-footer__linklist">
+                        <li><a href="#0">January 2018</a></li>
+                        <li><a href="#0">December 2017</a></li>
+                        <li><a href="#0">November 2017</a></li>
+                        <li><a href="#0">October 2017</a></li>
+                        <li><a href="#0">September 2017</a></li>
+                        <li><a href="#0">August 2017</a></li>
+                    </ul>
+
+                </div> <!-- end s-footer__archives -->
+
+                <div class="col-two md-four mob-full s-footer__social">
+                        
+                    <h4>Social</h4>
+
+                    <ul class="s-footer__linklist">
+                        <li><a href="#0">Facebook</a></li>
+                        <li><a href="#0">Instagram</a></li>
+                        <li><a href="#0">Twitter</a></li>
+                        <li><a href="#0">Pinterest</a></li>
+                        <li><a href="#0">Google+</a></li>
+                        <li><a href="#0">LinkedIn</a></li>
+                    </ul>
+
+                </div> <!-- end s-footer__social -->
+
+                <div class="col-five md-full end s-footer__subscribe">
+                        
+                    <h4>Our Newsletter</h4>
+
+                    <p>Ấn phẩm đầu tư giá trị đầu tiên và duy nhất tại Việt Nam dành cho nhà đầu tư cá nhân với nội dung chất lượng dựa trên quan điểm độc lập nhất.</p>
+
+                    <div class="subscribe-form">
+                        <form id="mc-form" class="group" novalidate="true">
+
+                            <input type="email" value="" name="EMAIL" class="email" id="mc-email" placeholder="Email Address" required="">
+                
+                            <input type="submit" name="subscribe" value="Send">
+                
+                            <label for="mc-email" class="subscribe-message"></label>
+                
+                        </form>
+                    </div>
+
+                </div> <!-- end s-footer__subscribe -->
+
+            </div>
+        </div> <!-- end s-footer__main -->
+
+        <div class="s-footer__bottom">
+            <div class="row">
+                <div class="col-full">
+                    <div class="s-footer__copyright">
+                        <span>© Blogful 2018</span> 
+                        <span>CBD Robotics <a href="#">Ta Duc Huy</a></span>
+                    </div>
+
+                    <div class="go-top">
+                        <a class="smoothscroll" title="Back to Top" href="#top"></a>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- end s-footer__bottom -->
+
+    </footer> <!-- end s-footer -->
+
+
+    <!-- preloader
+    ================================================== -->
+    <div id="preloader">
+        <div id="loader">
+            <div class="line-scale">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
     </div>
+
+
+    <!-- Java Script
+    ================================================== -->
+    <script src="../static/js/jquery-3.2.1.min.js"></script>
+    <script src="../static/js/plugins.js"></script>
+    <script src="../static/js/main.js"></script>
+
 </body>
 
 </html>

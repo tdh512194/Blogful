@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Post</title>
+    <link rel="stylesheet" href="../static/post.css">
+</head>
+<body>
+    <h1>{{ title }}</h1>
+    <!-- display edit button for owner -->
+    {%- if editable -%}
+        <form>
+            <button class="button" style="display: block; margin: auto" formaction="/post/{{entry_id}}/editpost" formmethod="post">
+                EDIT
+            </button>
+        </form>
+    {% endif %}
+    <br>
+    <div class="content">
+        {{ content }}
+    </div>
+    <form>
+        <btn-container>
+            <button class="button" formaction="/home">Home</button>
+        </btn-container>
+    </form>
+</body>
+</html>

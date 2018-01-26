@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="../static/write.css">
+</head>
+
+<body>
+    <h1 style="font-family: cursive; color: crimson; font-weight: bold; text-align: center">Verify yourself, sir</h1>
+    <div class="login-container">
+        <form>
+            <fieldset style="border-radius: 20px; border: solid 3px">
+                <legend style="font-size: 2em; color: #0B0033; background-color: #CDD7D6">Login</legend>
+                <div class="title">Username:</div>
+                <input type="text" name="username" required placeholder="userShit" class="input-title" style="text-align: left; width: 100%">
+                <div class="title">Password:</div>
+                <input type="password" name="password" required class="input-title" style="text-align: left; width: 100%">
+                <br>
+            </fieldset>
+            <div class="btn-container">
+                <button type="submit" class="button submit " formaction="/login" formmethod="post" autofocus>LOGIN</button>
+            </div>
+        </form>
+        <form>
+        <button class="button" formaction="/register" formmethod="get" style="transform: translateY(-30px)">REGISTER</button>
+        </form>
+    </div>
+<h2 style="text-align: center; color: deeppink"> {{ message }} </h2>
+</body>
+</html>

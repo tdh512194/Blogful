@@ -6,14 +6,11 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="Auction" />
     <orderEntry type="module" module-name="Login" />
+    <orderEntry type="module" module-name="MigrationTutotial" />
+    <orderEntry type="module" module-name="ducdan_ttcnpm-erp_fruitsandgreens-96ad989e1484" />
   </component>
   <component name="TemplatesService">
     <option name="TEMPLATE_CONFIGURATION" value="Jinja2" />
-    <option name="TEMPLATE_FOLDERS">
-      <list>
-        <option value="$MODULE_DIR$/templates" />
-      </list>
-    </option>
   </component>
   <component name="TestRunnerService">
     <option name="PROJECT_TEST_RUNNER" value="Unittests" />
